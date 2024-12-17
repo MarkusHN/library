@@ -1,0 +1,61 @@
+.add-modal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    gap: 1rem;
+}
+
+.add-modal-content input {
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+}
+
+.add-modal-content label {
+    font-size: 1.2rem;
+    color: white;
+}
+
+.add-modal-content h1 , h3{
+    color: white;
+}
+
+.add-modal-content button {
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    background-color: var(--fsb-navbar-color);
+    color: white;
+    cursor: pointer;
+}
+
+.genre-box {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    max-width: 400px;
+}
+
+.genre-box div {
+    flex: 1 1 40%;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.add-modal-content textarea {
+    resize: vertical; /* Allow vertical resizing */
+    min-height: 100px; /* Minimum height for the textarea */
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+

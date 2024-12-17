@@ -1,0 +1,394 @@
+:root{
+    --fsb-main-color: #00a2ff;
+    --fsb-secondary-color: #ff0000;
+    --fsb-text-color: #f5f5f5;
+    --fsb-secondary-text-color: #0000;
+    --fsb-navbar-color: #393939;
+    --fsb-gradient-start: #00157b; /* Dark blue */
+    --fsb-gradient-end: #00a2ff; /* Light blue */
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto Mono", monospace;
+}
+
+body{
+    /* background: linear-gradient(-45deg, #ff0101, #1100ff, #393939);
+    background-size: 1000% 1000%;
+    animation: gradient 15s ease infinite; */
+    height: 100vh;
+}
+
+.nav-links{
+    display: flex;
+    list-style: none;
+    width: 100%;
+    justify-content: end;
+    gap: 2rem;
+    font-size: 1.3rem;
+    cursor: pointer;
+    justify-content: baseline;
+    align-items: baseline;
+}
+
+.nav-links .nav-link:first-child{
+    margin-right: auto;
+}
+
+.home-icon, .movie-icon, .series-icon, .book-icon, .menu-icon, .user-icon{
+    position: relative;
+    top: 0.3rem;
+    right: 5px;
+    padding: 5px;
+}
+
+.nav-container a, .menu{
+    text-decoration: none;
+    color: var(--fsb-text-color);
+    padding: 0.5rem;
+}
+
+.nav-container{
+    padding: 2rem;
+    background-color: rgba(255, 255, 255, 0.2); /* Adjust the alpha value for transparency */
+    font-weight: 700;
+    position: relative;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.nav-container a:hover, .menu:hover{
+    background-color: white;
+    border-radius: 2rem;
+    color: black;
+}
+
+.active a{
+    background-color: white;
+    border-radius: 2rem;
+    color: black;
+}
+
+.sidenav {
+    height: 100vh;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    background-color: var(--fsb-navbar-color);
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 1.5rem;
+    color: var(--fsb-text-color);
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover {
+    color: var(--fsb-secondary-color);
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 36px;
+}
+
+#logout {
+    left: 0;
+    bottom: 0;
+    cursor: pointer;
+}
+
+.edit-button, .delete-button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: 1rem;
+}
+
+.edit-button {
+    background-image: linear-gradient(to right, #45a049, #00a2ff, #00157b);
+    color: white;
+}
+
+.edit-button:hover {
+    background-image: linear-gradient(to right, #07660c, #0068a4, #010f57);
+}
+
+.delete-button {
+    background-image: linear-gradient(to right, #da190b, #ff00e1, #1e00a3);
+    color: white;
+}
+
+.delete-button:hover {
+    background-image: linear-gradient(to right, #860900, #960085, #120062);
+}
+
+.popover{
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding: 100px 0 0 0;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+    text-align: center;
+}
+
+.popover-content{
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 20%;
+}
+
+.popover-content button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: 1rem;
+    color: white;
+    background-size: 200% auto;
+    transition: background-position 0.5s;
+}
+
+.popover-content .btnUpdate {
+    background-image: linear-gradient(to right, #4CAF50, #45a049); /* Green gradient */
+}
+
+.popover-content .btnUpdate:hover {
+    background-position: right center; /* Change the position of the gradient on hover */
+}
+
+.popover-content .btnClose {
+    background-image: linear-gradient(to right, #f44336, #da190b); /* Red gradient */
+}
+
+.popover-content .btnClose:hover {
+    background-position: right center; /* Change the position of the gradient on hover */
+}
+
+.popover-content .genre-box {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.popover-content .genre-box div {
+    flex: 1 1 45%; /* Two items per row */
+}
+
+.popover-content input[type="text"],
+.popover-content input[type="checkbox"],
+.popover-content textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    
+}
+
+.popover-content input[type="radio"], .popover-content label {
+    margin: 2rem 0 2rem 0;
+    font-size: 1.3rem;
+    font-weight: 900;
+}
+
+.popover-content div {
+    margin: 1rem 0 1rem 0;
+}
+
+.no-scroll {
+    overflow: hidden;
+}
+
+.popover-content textarea {
+    resize: vertical; /* Allow vertical resizing */
+    min-height: 100px; /* Minimum height for the textarea */
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.4);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: rgba(255, 255, 255, 0.5);
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 20%;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    position: relative;
+    backdrop-filter: blur(10px);
+    text-align: center;
+}
+
+.modal-content button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    font-size: 1rem;
+    color: white;
+    background-color: #4CAF50;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.btnProfile {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+
+#logout {
+    background-color: #f44336;
+}
+
+#logout:hover {
+    background-color: #da190b;
+}
+
+
+.modal-content button:hover {
+    background-color: #45a049;
+}
+
+.profile-info {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+}
+
+.profile-info label {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin: 10px 0 5px 0;
+}
+
+.profile-info input {
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    cursor: pointer;
+    font-size: 2rem;
+}
+
+.add-modal-content {
+    max-height: 80vh;
+    overflow-y: auto;
+    background-color: rgba(255, 255, 255, 0.5);
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 20%;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    position: relative;
+    backdrop-filter: blur(10px);
+    text-align: center;
+}
+
+.add-modal-content input {
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+}
+
+.add-modal-content label {
+    font-size: 1.2rem;
+    color: black;
+}
+
+.add-modal-content button {
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    background-color: var(--fsb-navbar-color);
+    color: white;
+    cursor: pointer;
+}
+
+.genre-box {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    max-width: 400px;
+}
+
+.genre-box div {
+    flex: 1 1 40%;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.add-modal-content textarea {
+    resize: vertical; /* Allow vertical resizing */
+    min-height: 100px; /* Minimum height for the textarea */
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.movies, .series, .books{
+    margin: 0 5vw 0 2rem;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
